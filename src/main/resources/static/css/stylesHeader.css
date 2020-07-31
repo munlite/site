@@ -1,0 +1,262 @@
+
+header{
+    width: 565px;
+    top: 20px;
+    right: 0;
+    margin: 0 auto;
+}
+/*div{*/
+/*    outline: 1px solid #FF0000;*/
+/*}*/
+body{
+    background: linear-gradient(to right, #8E54E9, #4776E6);
+}
+nav{
+    background-color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 2rem;
+    padding: 0 2rem;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav ul li{
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    line-height: 50px;
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+}
+nav ul li a:before{
+    content: attr(text);
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #81F1B2;
+    transform: rotateX(-270deg);
+    transform-origin: top;
+    transition: 0.5s;
+    color: white;
+}
+nav ul li a:hover:before{
+    transform: rotateX(0deg);
+}
+
+
+.product-item {
+    width: 350px;
+    text-align: center;
+    border-bottom: 2px solid #F5F5F5;
+    background: white;
+    font-family: "Open Sans";
+    margin: 30px 50px 20px 66px;
+    display: block ;
+    float: left ;
+
+}
+.product-item:hover {border-bottom: 2px solid #81F1B2;}
+.product-item img {
+    width: 350px;
+    height: 350px;
+    display: block;
+    width: 350px;
+
+
+}
+.product-item:hover img {
+    transform: scale(1.05);
+}
+.product-list {
+    background: #fafafa;
+    padding: 15px 0;
+}
+.product-list h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #444444;
+    margin: 0 0 10px 0;
+}
+.price {
+    font-size: 16px;
+    color: #000000;
+    display: block;
+    margin-bottom: 12px;
+}
+.button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 12px;
+    background: #cccccc;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 28px;
+    transition: .3s ease-in;
+}
+.product-item:hover .button {background: #81F1B2;}
+
+
+@media only screen and (min-width: 450px) {
+    .product-wrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .product-wrapper {
+        width: 33.333%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .product-wrapper {
+        width: 25%;
+    }
+}
+.product {
+    display: block;
+    border: 1px solid #b5e9a7;
+    border-radius: 3px;
+    position: relative;
+    background: #fff;
+    margin: 0 20px 20px 0;
+    text-decoration: none;
+    color: #474747;
+    z-index: 0;
+    height: 300px;
+    width: 300px;
+}
+.product-wrapper {
+    display: block;
+    width: 100%;
+    float: left;
+    transition: width .2s;
+}
+.productHead{
+    margin: 10px 0 0 0;
+    width: 960px;
+    height: 100;
+}
+.form-control{
+    width: 250px;
+}
+.btns{
+
+    border-radius: 10px;
+    background: #81F1B2;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 10px 0 0 0;
+    width: 150px;
+}
+.product-order{
+
+    position: relative;
+    background-color: white;
+    width: 960px;
+
+    border-bottom: #81F1B2 solid 2px;
+}
+.product-order img{
+    width: 100px;
+    height: 100px;
+    margin: 10px 10px 30px 30px;
+    position: relative;
+}
+.glav{
+
+    position: relative;
+    margin: 0 auto;
+    top: 20px;
+    width: 960px;
+}
+
+.childHead{
+
+    top: 20px;
+
+    margin: 0 auto 20px 0;
+    width: 100%;
+    height: 100px;
+}
+.categoriProduct{
+    margin-top: 210px;
+}
+.formProductOrder{
+    display: inline-block;
+}
+
+.slider_wrap {
+    margin:10px auto 0;
+    width: 960px;
+    height: 500px;
+    position:relative;
+    overflow:hidden;
+}
+.slider_wrap img {
+    width:960px;
+    height:500px;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.slider_wrap img:first-child {
+    display:block;
+}
+.slider_home{
+    position: relative;
+    margin: 0 auto;
+    top: 20px;
+}
+
+.imgCategory{
+    width: 960px;
+    margin:auto;
+    text-align: center;
+    top: 20px;
+}
+.imgCategory img{
+    width: 960px;
+    height: 450px;
+}
+.imgCategory:hover img{
+    transform: scale(1.05);
+}
+.btnc{
+    border-radius: 10px;
+    background: #81F1B2;
+    margin: 10px 0 0 0;
+    width: 150px;
+}
+.sortedElement{
+    width: 320px;
+    height: 22px;
+    margin: 10px 5px 5px 65px;
+
+}
+.home{
+    width: 960px;
+    position: relative;
+    margin: 0 auto;
+    top: 20px;
+
+}
+.home p{
+    font-size: 14pt;
+}

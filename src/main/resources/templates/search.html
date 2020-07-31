@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Магазин</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/stylesHeader.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/searchstyle.css"/>
+
+</head>
+<body>
+<div class="parant">
+    <div class="childHead">
+        <header th:insert="bloks/header :: header"/>
+    </div>
+    <form class="form-wrapper cf" method="post" action="/search/word/">
+        <input th:name="productName" type="text" placeholder="Введите здесь слово, которое нужно найти..." required>
+        <button type="submit">Искать</button>
+    </form>
+    <div class="product-item" th:each="el : ${products}">
+        <img th:src="${el.getPhoto()} ">
+        <form action="/search/add/" method="post">
+            <div class="product-list">
+                <span th:text="${el.getName()} "/>
+                <input type="hidden" name="id" th:value="${el.getId()}">
+                <span class="price" th:text="${el.getPrice()}"/>
+                <label><input th:name="amount" type="number" min="1" th:max="${el.getAmount()}" value="1">
+                    <span th:text="'/' + ${el.getAmount()}"></span></label>
+                <button type="submit" class="button">В корзину</button>
+            </div>
+        </form>
+</div>
+</body>
+</html>

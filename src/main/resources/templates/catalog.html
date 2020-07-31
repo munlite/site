@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Магазин</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/stylesHeader.css"/>
+</head>
+<body>
+<div class="childHead">
+    <header th:insert="bloks/header :: header"/>
+</div>
+
+<div class = "sortedElement">
+    <form action="/catalogy/${id}/" method="post">
+        <select name="sel" required>
+            <option></option>
+            <option value="PriceUp">Цена по возрастанию</option>
+            <option value="PriceDown" >Цена по убыванию</option>
+            <option value="Alfavite">По алфавиту</option>
+        </select>
+        <input class="btnc" type="submit" value="Сортировать"/>
+    </form>
+</div>
+        <div class="product-item" th:each="el : ${products}">
+            <img th:src="${el.getPhoto()} ">
+            <form action="/catalogy/add/" method="post">
+                <div class="product-list">
+                    <span th:text="${el.getName()} "/>
+                    <input type="hidden" name="id" th:value="${el.getId()}">
+                    <span class="price" th:text="${el.getPrice()}"/>
+                    <label><input th:name="amount" type="number" min="1" th:max="${el.getAmount()}" value="1">
+                    <span th:text="'/' + ${el.getAmount()}"></span></label>
+                    <button type="submit" class="button">В корзину</button>
+                </div>
+            </form>
+
+            </div>
+
+</form>
+<div th:insert="bloks/footer :: footer"/>
+</body>
+</html>

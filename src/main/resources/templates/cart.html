@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Корзина</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/stylesHeader.css"/>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="childHead">
+    <header th:insert="bloks/header :: header"/>
+</div>
+<div class="glav">
+    <label style="background: #ffffff; padding-left: 30px;margin: 0; width: 960px;"><span style="background: #ffffff; padding-left: 30px; font-size: 25px; margin: 0; width: 960px;" name="summ" th:text="'Ваш заказ на сумму: ' + ${sum}"></span></label>
+    <form id="formC" class="formProductOrder" action="/regUser/" method="post">
+        <div class="product-order"  th:each="el : ${cartProduct}">
+        <img th:src="${el.getPhoto()} ">
+            <div style="width: 700px; display: inline-block;">
+            <h4 style="width: 200px" th:text="${el.getName()}"/>
+            <input  type="hidden"  name="idProduct" th:value="${el.getId()}">
+            <span style="width: 200px" class="price" th:text="${el.getPrice()}"/>
+            <label style="width: 220px; text-align: center;  border-right: #81F1B2 solid 2px">Кол-во:<input  style="width: 50px; margin-left: 30px" th:name="amount" type="number" th:min="1" th:max="${el.getMaxAmount()}" th:value="${el.getAmount()}"></label>
+            <label style="width: 220px; text-align: center;  border-right: #81F1B2 solid 2px">На складе:<span  style="width: 50px; margin-left: 30px" th:name="amountMax" th:text="${el.getMaxAmount()}"></span></label>
+            <input  type="hidden" name="price" th:value="${el.amount*el.price}">
+            <a style="text-align: center; text-align: center; text-decoration: none; width: 140px; margin-left: 30px" th:href="${'/cart/delete/' + el.getId()}" class="button">Удалить</a>
+            </div>
+        </div>
+    </form>
+    <form action="/regUser/${id}" method="get">
+        <button form="formC" type="submit" class="btns">Перейти к вводу данных</button>
+    </form>
+<div>
+    <script>
+
+    </script>
+</body>
+</html>

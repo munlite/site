@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/stylesHeader.css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+        <header th:insert="bloks/header :: header"/>
+    </div>
+
+<div class="slider_home">
+    <div id="slider" class="slider_wrap">
+        <img src="../../static/../css/img//home/box.jpg" alt="" />
+        <img src="../../static/../css/img/home/sale.jpg" alt="" />
+    </div>
+</div>
+        <div class="home">
+        <h1>О нас</h1>
+            <p>Контакты</br>
+                Телефон:  +7 (908) 213 29 08</br>
+                Адрес:       г. Красноярск, ул. Борисова, дом 3</br>
+                Email:        Magic_bath_krsk@gmail.com
+            </p>
+        </div>
+
+<div th:insert="bloks/footer :: footer"/>
+    <script>
+        $(function () {
+            var el =  $('#slider img'),
+            indexImg = 1,
+            indexMax = el.length;
+
+            function autoCange () {
+            indexImg++;
+            if(indexImg > indexMax) {
+            indexImg = 1;
+            }
+            el.fadeOut(500);
+            el.filter(':nth-child('+indexImg+')').fadeIn(500);
+            }
+            setInterval(autoCange, 3000);
+        });
+    </script>
+</body>
+</html>
